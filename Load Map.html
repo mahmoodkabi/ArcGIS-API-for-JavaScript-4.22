@@ -4,7 +4,7 @@
     <style>
         body,
         html,
-        #divMap{
+        #divMap {
             padding: 0;
             margin: 0;
             width: 100%;
@@ -24,18 +24,27 @@
 </html>
 
 <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView"], function(config, map, mapView){
-        config.apiKey = "AAPK6dfcfe07760346799cdda2a5dcd53f28o4F5FuXFQkyyoyiWhsiXfG9L8VlQf5AfG1AErUDWJTlFcCxfWJDPKDOCvbsdq3UU";
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer"],
+        function (config, map, mapView, FeatureLayer) {
 
-        const map1 =  new map({
-            basemap: "osm",
-        });
+            config.apiKey = "AAPK6dfcfe07760346799cdda2a5dcd53f28o4F5FuXFQkyyoyiWhsiXfG9L8VlQf5AfG1AErUDWJTlFcCxfWJDPKDOCvbsdq3UU";
 
-        const mapView1 = new mapView({
-            map: map1,
-            center: [51.556343121340696 ,32.85793884687001],
-            zoom : 15,
-            container : "divMap"
+            const layer = new FeatureLayer({
+                // URL to the service
+                url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0"
+            });
+
+            const map = new map({
+                basemap: "osm-light-gray",
+            });
+
+            const mapView = new mapView({
+                map: map,
+                center: [-107.71808390060319, 42.68918060911958],
+                zoom: 2,
+                container: "divMap"
+            });
+
+            map.layers.addMany([layer]);
         })
-    })
 </script>
