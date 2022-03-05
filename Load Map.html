@@ -25,7 +25,7 @@
 
 <script>
     require(["esri/config", "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer"],
-        function (config, map, mapView, FeatureLayer) {
+        function (config, Map, MapView, FeatureLayer) {
 
             config.apiKey = "AAPK6dfcfe07760346799cdda2a5dcd53f28o4F5FuXFQkyyoyiWhsiXfG9L8VlQf5AfG1AErUDWJTlFcCxfWJDPKDOCvbsdq3UU";
 
@@ -34,14 +34,14 @@
                 url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0"
             });
 
-            const map = new map({
-                basemap: "osm-light-gray",
+            const map = new Map({
+                basemap: "osm",
             });
 
-            const mapView = new mapView({
+            const view  = new MapView({
                 map: map,
                 center: [-107.71808390060319, 42.68918060911958],
-                zoom: 2,
+                zoom: 4,
                 container: "divMap"
             });
 
