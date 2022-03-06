@@ -1,36 +1,46 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
-
     <style>
-        html,
         body,
-        #viewDiv {
+        html,
+        #divMap {
             padding: 0;
             margin: 0;
+            width: 100%;
             height: 100%;
-            width: 100%;  
         }
     </style>
+    <title>ArcGIS API For Javascript 4.22</title>
+</head>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.22/"></script>
+<link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.22/"></script>
 
-    <script>
+<body>
+    <div id="divMap"></div>
+</body>
 
-        require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig, Map, MapView) {
+</html>
 
-            esriConfig.apiKey = "AAPK6dfcfe07760346799cdda2a5dcd53f28o4F5FuXFQkyyoyiWhsiXfG9L8VlQf5AfG1AErUDWJTlFcCxfWJDPKDOCvbsdq3UU";
+<script>
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer"],
+        function (config, Map, MapView, FeatureLayer) {
 
-            const map = new Map({
-                basemap: "osm" // Basemap layer service
+            config.apiKey = "AAPK6dfcfe07760346799cdda2a5dcd53f28o4F5FuXFQkyyoyiWhsiXfG9L8VlQf5AfG1AErUDWJTlFcCxfWJDPKDOCvbsdq3UU";
+
+            const layer = new FeatureLayer({
+                // URL to the service
+                url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0"
             });
 
-            const view = new MapView({
+            const map = new Map({
+                basemap: "osm",
+            });
+
+            const view  = new MapView({
                 map: map,
+<<<<<<< HEAD
                 center: [51.55, 32.85], // Longitude, latitude
                 zoom: 15, // Zoom level
                 container: "divMap" // Div element
@@ -46,3 +56,13 @@
 </body>
 
 </html>
+=======
+                center: [-107.71808390060319, 42.68918060911958],
+                zoom: 4,
+                container: "divMap"
+            });
+
+            map.layers.addMany([layer]);
+        })
+</script>
+>>>>>>> b1e93213f482abfba6413e53e2592cc555a2a5f5
