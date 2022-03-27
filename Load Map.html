@@ -31,35 +31,21 @@
 
             const layer = new FeatureLayer({
                 // URL to the service
-                url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0"
+                url: "https://gisfava.isfahan.ir/arcgis80/rest/services/BaseMap/GISBaseMap1/MapServer/1"
             });
 
             const map = new Map({
-                basemap: "osm",
+               basemap: "osm-light-gray",
             });
 
-            const view  = new MapView({
+            const mapView = new MapView({
                 map: map,
-                center: [51.55, 32.85], // Longitude, latitude
-                zoom: 15, // Zoom level
-                container: "divMap" // Div element
-            });
-
-        });
-    </script>
-
-</head>
-
-<body>
-    <div id="divMap"></div>
-</body>
-
-</html>
-                center: [-107.71808390060319, 42.68918060911958],
-                zoom: 4,
+                //center: [-107.71808390060319, 42.68918060911958],
+                center: [51.6573571480861, 32.64777704555835],
+                zoom: 12,
                 container: "divMap"
             });
 
             map.layers.addMany([layer]);
         })
-</script>
+</script>    
